@@ -11,8 +11,26 @@ class MovieListAV(APIView):
         movies=Movie.objects.all()
         serializers=MovieSerializer(movies, many=True)
         return Response(serializers.data)
+
     def post(self, request):
+        serializer=MovieSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
+
+class MovieDetailAV(APIView):
+    def get(self,request):
+        try:
+            movie=Movie.objects.get(pk=pk)
+        except Movie.DoesNotExist:
+            return Response({'errors':'Movie not found'})
         
+        serializer=MovieSerializer(movie)
+        return Response(serializer)
+      
 # @api_view(['GET','POST'])
 # def movie_list(request):
 
