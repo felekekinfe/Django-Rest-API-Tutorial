@@ -37,4 +37,7 @@ def movie_details(request,pk):
             return Response(serializer.errors)
 
     if request.method=='DELETE':
-        pass
+        movie=Movie.objects.get(pk=pk)
+        movie.delete()
+        return Response(status=200)
+
