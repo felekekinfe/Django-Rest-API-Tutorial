@@ -30,7 +30,8 @@ class MovieDetailAV(APIView):
         
         serializer=MovieSerializer(movie)
         return Response(serializer)
-      
+    def put(self, request):
+        movie
 # @api_view(['GET','POST'])
 # def movie_list(request):
 
