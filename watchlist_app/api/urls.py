@@ -8,7 +8,7 @@ urlpatterns = [
      path('<int:pk>',WatchDetailAV.as_view(),name='watch_details'),
 
      path('stream/',StreamPlatformAV.as_view(),name='stream'),
-     path('stream/<int:pk>',StreamPlatformDetail.as_view(),name='stream_detail'),
+     path('stream/<int:pk>',StreamPlatformDetail.as_view(),nam='stream_detail'),
      
 
 ]
