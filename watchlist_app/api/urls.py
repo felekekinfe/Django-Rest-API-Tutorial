@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import StreamPlatformAV,StreamPlatformDetail,WatchListAV,WatchDetailAV
+from .views import StreamPlatformAV,StreamPlatformDetail,WatchListAV,WatchDetailAV,ReviewList,ReviewDetails
 
 
 urlpatterns = [
@@ -9,6 +9,10 @@ urlpatterns = [
 
      path('stream/',StreamPlatformAV.as_view(),name='stream'),
      path('stream/<int:pk>',StreamPlatformDetail.as_view(),name='stream_detail'),
-     
+     # path('review',ReviewList.as_view(), name='review-list'),
+     # path('review/<int:pk>',ReviewDetails.as_view(), name='review-details'),
+     path('stream/<int:pk>/review',ReviewList.as_view(), name='review-list'),
+     path('stream/review/<int:pk>',ReviewDetails.as_view(), name='review-details')
+
 
 ]
